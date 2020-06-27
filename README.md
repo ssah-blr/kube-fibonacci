@@ -38,7 +38,8 @@ Step 3. Access application, by accessing woker node Ip -
         Nodeport=$(kubectl get svc -l app=fiboweb -o jsonpath="{.items[0].spec.ports[0].nodePort}")
         Browse -> http://<workernode-IP>:$Nodeport
 
-Screenshot of applicaiton on browser -
+Screenshot of applicaiton on browser -                                                  
+
 ![Alt text](Screenshot.jpg?raw=true "Kube Fibonacci")
 
 Thanks
