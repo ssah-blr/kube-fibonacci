@@ -6,7 +6,7 @@ Simple Fibonacci Application written in Python, meant for Kubernetes Cluster, wi
 Prerequisites -
 
 	1. DockerHub Account with repository named fibo (e.g. <DockerhubAccount>/fibo). Login to hub.docker.com -
-           docker login -u DockerhubAccount
+           docker login -u <DockerhubAccount>
 	2. Kubernetes Cluster with DNS sollution like CoreDNS
 
 Step 1. Build Docker Images -
