@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fibonacci</title>
+</head>
+<body>
+    <p>Fibonacci Calculator</p>
+
+<form action="/recalc?type=resetme" method="post" >
+  Fibonacci Index: {{ indexnum }} <br>
+  Fibonacci Sequence is:
+  <output type="text" name="result">{{ answer }}</output><br><br>
+  <input type="submit" value="Next">
+</form>
+
+</body>
+</html>

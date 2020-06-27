@@ -1,0 +1,91 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: fiboapp
+  name: fiboapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fiboapp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: fiboapp
+    spec:
+      containers:
+      - image: ssahblr/fibo:v6app
+        name: fibo
+        ports:
+        - containerPort: 5501
+        resources: {}
+      imagePullSecrets:
+      - name: regcred
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: fiboapp
+  name: fibonacci-app-service
+spec:
+  ports:
+  - port: 5501
+    protocol: TCP
+    targetPort: 5501
+  selector:
+    app: fiboapp
+  type: ClusterIP
+status:
+  loadBalancer: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: fiboweb
+  name: fiboweb
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fiboweb
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: fiboweb
+    spec:
+      containers:
+      - image: ssahblr/fibo:v6web
+        name: fibo
+        resources: {}
+      imagePullSecrets:
+      - name: regcred
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: fiboweb
+  name: fiboweb-service
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 5500
+  selector:
+    app: fiboweb
+  type: NodePort
+status:
+  loadBalancer: {}
