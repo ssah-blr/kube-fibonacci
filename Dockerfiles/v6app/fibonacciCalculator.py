@@ -24,7 +24,7 @@ def Fibonacci2(n):
 def Fibonacci(n):
     if n.isdigit():
         x = Fibonacci2(n)
-        print "### Fibonacci sequence is {0} ###\n".format(x)
+        print("### Fibonacci sequence is {0} .###\n".format(x))
     else:
         x = 'Incorrect Input : Enter a Number greater than 0'
     fib = []
@@ -35,9 +35,9 @@ def Fibonacci(n):
 
 @app.route('/fcal', methods=['GET'])
 def mediator():
-    print "### At Mediator ###\n"
+    print("### At Mediator ###\n")
     getindex = request.args.get('fibindex')
-    print "### value of getindex is {0} ###".format(getindex)
+    print("### value of getindex is {0} ###".format(getindex))
 
     return Fibonacci(getindex)
 
