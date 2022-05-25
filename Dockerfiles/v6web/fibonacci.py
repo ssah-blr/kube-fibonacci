@@ -13,14 +13,14 @@ port = int(os.getenv("PORT", 5500))
 @app.route('/fcal', methods=['POST'])
 def mediator():
     getindex = request.form['fibindex']
-    print "### Find Fibonacci sequence for index {0} ###".format(getindex)
+    print("### Find Fibonacci sequence for index {0} .###".format(getindex))
 
     # CONNECTION with other app
     url = 'http://fibonacci-app-service:5501/fcal?fibindex=' + str(getindex)
     try:
         r = session.get(url=url)
-        print r.status_code
-        print r.text
+        print(r.status_code)
+        print(r.text)
         res = json.loads(r.text)
         for i in res:
             # print i['index']
@@ -29,7 +29,7 @@ def mediator():
             x = i['sequence']
         return render_template('output.html', indexnum=n, answer=x)
     except:
-        print 'Connecting Error or Bad Response from Fibonacci Calculator'
+        print('Connecting Error or Bad Response from Fibonacci Calculator')
         return render_template('error.html')
 
 

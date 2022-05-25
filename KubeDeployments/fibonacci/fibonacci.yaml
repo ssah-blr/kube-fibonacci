@@ -20,6 +20,7 @@ spec:
       containers:
       - image: ssahblr/fibo:v6app
         name: fibo
+        imagePullPolicy: Always
         ports:
         - containerPort: 5501
         resources: {}
@@ -67,6 +68,7 @@ spec:
       containers:
       - image: ssahblr/fibo:v6web
         name: fibo
+        imagePullPolicy: Always
         resources: {}
       imagePullSecrets:
       - name: regcred
